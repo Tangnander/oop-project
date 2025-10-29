@@ -2,24 +2,46 @@ package model;
 
 public abstract class Person implements UserType {
 
-    @Override
-    public void getUsername() {
-    }
+	protected String personalID;
+	protected String name;
+	protected String username;
+	protected String password;
+	protected String email;
 
-    @Override
-    public void getPassword() {
-    }
+	public Person(String personalID, String name, String email, String username, String password) {
+		this.personalID = personalID;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
 
-    @Override
-    public void getPermissions() {
-    }
+	public String getPersonalID() {
+		return personalID;
+	}
 
-    public void getPersonalID() {
+	public String getName() {
+		return name;
+	}
 
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void getEmail() {
+	// från interfacet UserType
 
-    }
+	@Override
+	public String getUsername() {
+		return username;
+	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public void getPermissions() {
+	}
 
 }
