@@ -11,6 +11,8 @@ public class PermissionCheck {
     private String requestedUserName;
     private String requestedPassword;
 
+    private String idNumber;
+
     public String[] readFromCSV() {
         String[] parseFromCsv;
 
@@ -48,6 +50,7 @@ public class PermissionCheck {
 
             if (requestedPassword.equals(userInfo[1])) {
                 correctPassword = true;
+                setIdNumber(userInfo[2]);
             }
         } catch (NullPointerException e) {
 
@@ -55,11 +58,19 @@ public class PermissionCheck {
         return correctPassword;
     }
 
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
     //Testing if parsing works.
     public static void main(String[] args) {
         PermissionCheck pc = new PermissionCheck();
 
-        pc.setRequestedLoginInfo("test2", "password");
+        pc.setRequestedLoginInfo("test", "password");
 
         if (pc.checkPassword() == true) {
             System.out.println("Login Successful!");
@@ -69,3 +80,5 @@ public class PermissionCheck {
     }
 
 }
+
+
