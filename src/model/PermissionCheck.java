@@ -8,7 +8,7 @@ public class PermissionCheck {
 
     public static final String COMMA_DELIMITER = ",";
 
-    private String requestedUserName = "test";
+    private String requestedUserName;
     private String requestedPassword;
 
     public String[] readFromCSV() {
@@ -28,7 +28,7 @@ public class PermissionCheck {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        throw new RuntimeException("User not found");
+        return null;
     }
 
     public void setRequestedLoginInfo(String username, String password) {
@@ -40,13 +40,34 @@ public class PermissionCheck {
         return requestedUserName;
     }
 
+    public boolean checkPassword() {
+        boolean correctPassword = false;
+
+        try {
+            String[] userInfo = readFromCSV();
+
+            if (requestedPassword.equals(userInfo[1])) {
+                correctPassword = true;
+            }
+        } catch (NullPointerException e) {
+
+        }
+        return correctPassword;
+    }
+
     //Testing if parsing works.
     public static void main(String[] args) {
         PermissionCheck pc = new PermissionCheck();
 
-        for (String pw : pc.readFromCSV()) {
-            System.out.println(pw);
+        pc.setRequestedLoginInfo("test2", "password");
+
+        if (pc.checkPassword() == true) {
+            System.out.println("Login Successful!");
+        } else {
+            System.out.println("Incorrect Username or Password!");
         }
     }
 
 }
+
+
