@@ -33,8 +33,9 @@ public class CourseReader {
         }
 
         // Testa utskrift
+        System.out.println("Kurskod;Kursnamn;Högskolepoäng;Anmälningskod;Årtal;Vecka;Studieplatser;Studietakt");
         for (CourseTracker c : courses) {
-        	System.out.println("Kurskod;Kursnamn;Högskolepoäng;Anmälningskod;Årtal;Vecka;Studieplatser;Studietakt");
+        	
         	System.out.println(c.getCourseCode() + c.getCourseName() + c.getPoints() + c.getRegistrationCode() 
         							+ c.getYear() + c.getWeek() + c.getStudyPlaces() + c.getStudyPace());
             
