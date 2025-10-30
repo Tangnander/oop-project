@@ -20,10 +20,12 @@ public class Session {
         this.idNumber = idNumber;
     }
 
+    //TODO: Not used, remove later.
+    @Deprecated
     public String[] matchWithID() {
         String[] readFromPersonList;
 
-        try (Scanner csvScanner = new Scanner(new File("src/personList.csv"))) {
+        try (Scanner csvScanner = new Scanner(new File("src/celebrities"))) {
             csvScanner.useDelimiter(CSV_DELIMITER);
 
             while (csvScanner.hasNextLine()) {
@@ -43,10 +45,9 @@ public class Session {
 
     public Student matchStudent() {
         Student student = null;
-        List<Student> studentList = studentReader.readStudentFile("src/personList.csv");
+        List<Student> studentList = StudentReader.readStudentFile("src/celebrities.txt");
 
         for (int i = 0; i < studentList.size(); i++) {
-            System.out.println(studentList.get(i).getPersonalID());
             if ((studentList.get(i).getPersonalID()).equals(this.idNumber)) {
                 student = studentList.get(i);
                 break;

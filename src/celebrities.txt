@@ -1,3 +1,4 @@
+Super User;00000000-0000
 Chaplin Charlie;18890416-1234
 Monroe Marilyn;19260601-1234
 Hepburn Audrey;19290504-1234
