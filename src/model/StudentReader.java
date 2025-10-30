@@ -8,7 +8,7 @@ import java.util.List;
 
 import model.User.Student;
 
-public class studentReader {
+public class StudentReader {
 
 	public static List<Student> readStudentFile(String fileName) {
 

@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class PermissionCheck {
 
-    private final String COMMA_DELIMITER = ",";
-    private final int USER_NAME_INDEX = 0;
-    private final int PASSWORD_INDEX = 1;
-    private final int PERSONAL_ID_INDEX = 2;
+    private final String USER_DELIMITER = ";";
+    private final int USER_NAME_INDEX = 1;
+    private final int PASSWORD_INDEX = 2;
+    private final int PERSONAL_ID_INDEX = 0;
     private final int ROLE_INDEX = 3;
 
     private String requestedUserName;
@@ -26,11 +26,11 @@ public class PermissionCheck {
     public String[] readFromCSV() {
         String[] parseFromCsv;
 
-        try (Scanner csvScanner = new Scanner(new File("src/userInfo.csv"))) {
-            csvScanner.useDelimiter(COMMA_DELIMITER);
+        try (Scanner csvScanner = new Scanner(new File("src/userInfo.txt"))) {
+            csvScanner.useDelimiter(USER_DELIMITER);
 
             while (csvScanner.hasNextLine()) {
-                parseFromCsv = csvScanner.nextLine().split(COMMA_DELIMITER);
+                parseFromCsv = csvScanner.nextLine().split(USER_DELIMITER);
                 String csvRedline = parseFromCsv[USER_NAME_INDEX];
 
                 if (csvRedline.equals(requestedUserName)) {
@@ -94,7 +94,7 @@ public class PermissionCheck {
     public static void main(String[] args) {
         PermissionCheck pc = new PermissionCheck();
 
-        pc.setRequestedLoginInfo("test", "password");
+        pc.setRequestedLoginInfo("13Sudo37", "password");
 
         if (pc.checkPassword() == true) {
             System.out.println("Login Successful!");
