@@ -21,8 +21,11 @@ public class studentReader {
 
 				String name = parts[0];
 				String personalID = parts[1];
+				String username = UsernameCreator.createUsername(name);
+				String email = EmailCreator.createEmail(username);
+				String password = "pass123";
 
-				Student student = new Student(name, personalID);
+				Student student = new Student(name, personalID, username, email, password);
 				
 				studentList.add(student);
 			}
@@ -32,7 +35,7 @@ public class studentReader {
 
 		// Testa utskrift
 		for (Person s : studentList) {
-			System.out.println(s.getName() + " " + s.getPersonalID());
+			System.out.println(s.getName() + " " + s.getPersonalID() + " " + s.getUsername() + " " +  s.getEmail() + " " + s.getPassword());
 
 		}
 	}
