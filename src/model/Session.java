@@ -2,6 +2,7 @@ package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Session {
@@ -34,6 +35,20 @@ public class Session {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public Student matchStudent() {
+        Student student = null;
+        List<Student> studentList = studentReader.readStudentFile("src/personList.csv");
+
+        for (int i = 0; i < studentList.size(); i++) {
+            System.out.println(studentList.get(i).getPersonalID());
+            if ((studentList.get(i).getPersonalID()).equals(this.idNumber)) {
+                student = studentList.get(i);
+                break;
+            }
+        }
+        return student;
     }
 
 }

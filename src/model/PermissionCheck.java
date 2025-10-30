@@ -17,7 +17,7 @@ public class PermissionCheck {
 
     private String idNumber;
     private String userRole;
-    private String[] currentUser;
+    private Student currentUser;
 
     //Parses the data from userInfo.csv to retrieve userdata to compare against
     //when checking passwords and username.
@@ -81,9 +81,9 @@ public class PermissionCheck {
     }
 
     //Matches id numbers to retrieve correct user.
-    public String[] login() {
+    public Student login() {
         Session currentSession = new Session(getIdNumber());
-        this.currentUser = currentSession.matchWithID();
+        this.currentUser = currentSession.matchStudent();
 
         return this.currentUser;
     }
