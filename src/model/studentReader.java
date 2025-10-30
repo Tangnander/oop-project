@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.User.Student;
+
 public class studentReader {
 
 	public static List<Student> readStudentFile(String fileName) {
@@ -25,8 +27,9 @@ public class studentReader {
 				String username = UsernameCreator.createUsername(name);
 				String email = EmailCreator.createEmail(username);
 				String password = "pass123";
+				String role = "Student";
 
-				Student student = new Student(name, personalID, username, email, password);
+				Student student = new Student(name, personalID, username, email, password, role);
 
 				studentList.add(student);
 			}

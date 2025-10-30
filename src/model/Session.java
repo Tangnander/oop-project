@@ -1,5 +1,8 @@
 package model;
 
+import model.User.Person;
+import model.User.Student;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -36,6 +39,7 @@ public class Session {
         }
         return null;
     }
+
 
     public Student matchStudent() {
         Student student = null;

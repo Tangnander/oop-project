@@ -1,4 +1,4 @@
-package model;
+package model.User;
 
 public abstract class Person implements UserType {
 	
@@ -7,14 +7,16 @@ public abstract class Person implements UserType {
 	protected String email;
 	protected String username;
 	protected String password;
+	protected String role;
 
 
-	public Person(String name, String personalID, String username, String email, String password) {
+	public Person(String name, String personalID, String username, String email, String password, String role) {
 		this.name = name;
 		this.personalID = personalID;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 		
 	}
 
@@ -43,8 +45,8 @@ public abstract class Person implements UserType {
 	}
 
 	@Override
-	public String getPermissions() {
-    return null;
+	public String getRole() {
+		return role;
 	}
 
 }
