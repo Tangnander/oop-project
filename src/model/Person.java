@@ -2,23 +2,20 @@ package model;
 
 public abstract class Person implements UserType {
 	
-	protected String personalID;
 	protected String name;
+	protected String personalID;
+	protected String email;
 	protected String username;
 	protected String password;
-	protected String email;
 
-	public Person(String name, String personalID, String email, String username, String password) {
+
+	public Person(String name, String personalID, String username, String email, String password) {
 		this.name = name;
 		this.personalID = personalID;
 		this.username = username;
-		this.password = password;
 		this.email = email;
-	}
-	
-	public Person(String name, String personalID) {
-		this.name = name;
-		this.personalID = personalID;
+		this.password = password;
+		
 	}
 
 	public String getPersonalID() {
