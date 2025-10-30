@@ -7,15 +7,10 @@ public class UsernameCreator {
 		// Dela namnet på mellanslag
 		String[] parts = fullName.trim().split("\\s+");
 
-		if (parts.length < 2) {
-			// Om bara ett namn finns, ta de 4 första bokstäverna
-			return fullName.substring(0, Math.min(4, fullName.length())).toUpperCase();
-		}
-
 		String firstName = parts[1]; // "Marilyn"
 		String lastName = parts[0]; // "Monroe"
 
-		// Ta två första bokstäverna från varje del (om det går)
+		// Ta två första bokstäverna från varje del 
 		String part1 = firstName.substring(0, Math.min(2, firstName.length()));
 		String part2 = lastName.substring(0, Math.min(2, lastName.length()));
 
