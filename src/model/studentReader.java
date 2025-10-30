@@ -8,13 +8,14 @@ import java.util.List;
 
 public class studentReader {
 
-	public static void main(String[] args) {
+	public static List<Student> readStudentFile(String fileName) {
+
 		List<Student> studentList = new ArrayList<>();
 
-		try (BufferedReader br = new BufferedReader(new FileReader("celebrities.txt"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				// Dela upp raden på semikolon
+				// Dela upp raden genom semikolon
 				String[] parts = line.split(";");
 
 				// Skapa CourseTracker-objekt (observera typer)
@@ -26,17 +27,13 @@ public class studentReader {
 				String password = "pass123";
 
 				Student student = new Student(name, personalID, username, email, password);
-				
+
 				studentList.add(student);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// Testa utskrift
-		for (Person s : studentList) {
-			System.out.println(s.getName() + " " + s.getPersonalID() + " " + s.getUsername() + " " +  s.getEmail() + " " + s.getPassword());
-
-		}
+		return studentList;
 	}
 }
