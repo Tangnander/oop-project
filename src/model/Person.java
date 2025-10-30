@@ -41,7 +41,8 @@ public abstract class Person implements UserType {
 	}
 
 	@Override
-	public void getPermissions() {
+	public String getPermissions() {
+    return null;
 	}
 
 }

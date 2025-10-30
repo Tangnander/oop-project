@@ -2,10 +2,10 @@ package model;
 
 public interface UserType {
 
-    public void getUsername();
+    public String getUsername();
 
-    public void getPassword();
+    public String getPassword();
 
-    public void getPermissions();
+    public String getPermissions();
 
 }
