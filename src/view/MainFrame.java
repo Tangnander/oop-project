@@ -1,19 +1,78 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame{
+	
+    private CardLayout cardLayout; // Easier to change window.
+    private JPanel mainPanel;      
+    private JMenu menu;
+    private JPanel panel1 = new JPanel();
+    private JMenuItem mainItem;
+    private JMenuItem courseItem;
+    private JMenuItem studentItem;
+    private JMenuItem exitItem;
 
-    JTabbedPane mainTab = new MainTab();
+	public MainFrame() { // String username
+		
+		// Frame Block.
+		setTitle("Admin");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		setSize(1500,900);
+		getContentPane().setBackground(new Color(50,50,50));
+		setVisible(true);
+		
+		add(panel1,BorderLayout.NORTH);
+		panel1.setLayout(new BorderLayout());
+		panel1.setBackground(Color.YELLOW);
+		panel1.setPreferredSize(new Dimension(0,20));
+		// Sub Panels.
+		
+        // Main Panel
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
+        add(mainPanel);
 
-    public MainFrame() {
-        setTitle("School App");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        // Add Windows
+        mainPanel.add(new MainWindow(), "MainWindow");
+        mainPanel.add(new CourseVeiw(), "CourseWindow");
+        mainPanel.add(new StudentView(), "StudentWindow");
 
-        add(mainTab);
-        setSize(1000, 1000);
-        setVisible(true);
-    }
+        // Menu
+        JMenuBar menuBar = new JMenuBar();
+        panel1.add(menuBar);
 
+        menu = new JMenu("Menu");
+
+        mainItem = new JMenuItem("Home");
+        courseItem = new JMenuItem("Courses");
+        studentItem = new JMenuItem("Students");
+        exitItem = new JMenuItem("Exit");
+
+        menu.add(mainItem);
+        menu.add(courseItem);
+        menu.add(studentItem);
+        menu.add(exitItem);
+        menuBar.add(menu);
+        
+        setJMenuBar(menuBar);
+
+        // Menu Listeners - Move to controller
+        mainItem.addActionListener(e -> cardLayout.show(mainPanel, "MainWindow"));
+        courseItem.addActionListener(e -> cardLayout.show(mainPanel, "CourseWindow"));
+        studentItem.addActionListener(e -> cardLayout.show(mainPanel, "StudentWindow"));
+        
+	}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == exitItem) {
+			System.exit(0);
+		}
+	}
 }
