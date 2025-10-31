@@ -1,15 +1,17 @@
 package model;
 
+import model.user.Student;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PermissionCheck {
 
-    private final String COMMA_DELIMITER = ",";
-    private final int USER_NAME_INDEX = 0;
-    private final int PASSWORD_INDEX = 1;
-    private final int PERSONAL_ID_INDEX = 2;
+    private final String COMMA_DELIMITER = ";";
+    private final int PERSONAL_ID_INDEX = 0;
+    private final int USER_NAME_INDEX = 1;
+    private final int PASSWORD_INDEX = 2;
     private final int ROLE_INDEX = 3;
 
     private String requestedUserName;
@@ -17,14 +19,14 @@ public class PermissionCheck {
 
     private String idNumber;
     private String userRole;
-    private String[] currentUser;
+    private Student currentUser;
 
     //Parses the data from userInfo.csv to retrieve userdata to compare against
     //when checking passwords and username.
     public String[] readFromCSV() {
         String[] parseFromCsv;
 
-        try (Scanner csvScanner = new Scanner(new File("src/userInfo.csv"))) {
+        try (Scanner csvScanner = new Scanner(new File("src/userInfo.txt"))) {
             csvScanner.useDelimiter(COMMA_DELIMITER);
 
             while (csvScanner.hasNextLine()) {
@@ -81,9 +83,9 @@ public class PermissionCheck {
     }
 
     //Matches id numbers to retrieve correct user.
-    public String[] login() {
+    public Student login() {
         Session currentSession = new Session(getIdNumber());
-        this.currentUser = currentSession.matchWithID();
+        this.currentUser = currentSession.matchStudent();
 
         return this.currentUser;
     }

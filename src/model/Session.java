@@ -1,10 +1,12 @@
 package model;
 
+import model.user.Person;
+import model.user.Student;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
-
-import model.User.Person;
 
 public class Session {
 
@@ -21,7 +23,7 @@ public class Session {
     public String[] matchWithID() {
         String[] readFromPersonList;
 
-        try (Scanner csvScanner = new Scanner(new File("src/personList.csv"))) {
+        try (Scanner csvScanner = new Scanner(new File("src/userInfo.txt"))) {
             csvScanner.useDelimiter(CSV_DELIMITER);
 
             while (csvScanner.hasNextLine()) {
@@ -38,4 +40,20 @@ public class Session {
         return null;
     }
 
+
+    public Student matchStudent() {
+        Student student = null;
+        List<Student> studentList = StudentReader.readStudentFile("src/celebrities.txt");
+
+        for (int i = 0; i < studentList.size(); i++) {
+            System.out.println(studentList.get(i).getPersonalID());
+            if ((studentList.get(i).getPersonalID()).equals(this.idNumber)) {
+                student = studentList.get(i);
+                break;
+            }
+        }
+        return student;
+    }
+
 }
+ 
