@@ -1,6 +1,6 @@
 package model;
 
-import model.User.Student;
+import model.user.Student;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -94,7 +94,7 @@ public class PermissionCheck {
     public static void main(String[] args) {
         PermissionCheck pc = new PermissionCheck();
 
-        pc.setRequestedLoginInfo("13Sudo37", "password");
+        pc.setRequestedLoginInfo("25ChCh01", "pass123");
 
         if (pc.checkPassword() == true) {
             System.out.println("Login Successful!");
