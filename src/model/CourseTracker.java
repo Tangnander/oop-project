@@ -56,5 +56,9 @@ public class CourseTracker {
 		return studyPace;
 	}
 
+	@Override
+	public String toString() {
+		return courseCode + " - " + courseName + " - " + registrationCode + " - " + year;
+	}
 
 }
