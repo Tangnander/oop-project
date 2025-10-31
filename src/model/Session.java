@@ -1,7 +1,7 @@
 package model;
 
-import model.User.Person;
-import model.User.Student;
+import model.user.Person;
+import model.user.Student;
 
 import java.io.File;
 import java.io.FileNotFoundException;

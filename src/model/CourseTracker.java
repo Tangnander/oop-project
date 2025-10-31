@@ -2,59 +2,59 @@ package model;
 
 public class CourseTracker {
 
-	private String courseCode;
-	private String courseName;
-	private double points;
-	private String registrationCode;
-	private int year;
-	private int week;
-	private int studyPlaces;
-	private double studyPace;
-	
-	 public CourseTracker(String courseCode, String courseName, double points,
-             String registrationCode, int year, int week, int studyPlaces, double studyPace) {
-		 
-		this.courseCode = courseCode;
-		this.courseName = courseName;
-		this.points = points;
-		this.registrationCode = registrationCode;
-		this.year = year;
-		this.week = week;
-		this.studyPlaces = studyPlaces;
-		this.studyPace = studyPace;
-	}
+    private String courseCode;
+    private String courseName;
+    private double points;
+    private String registrationCode;
+    private int year;
+    private int week;
+    private int studyPlaces;
+    private double studyPace;
 
-	public String getCourseCode() {
-		return courseCode;
-	}
+    public CourseTracker(String courseCode, String courseName, double points,
+                         String registrationCode, int year, int week, int studyPlaces, double studyPace) {
 
-	public String getCourseName() {
-		return courseName;
-	}
+        this.courseCode = courseCode;
+        this.courseName = courseName;
+        this.points = points;
+        this.registrationCode = registrationCode;
+        this.year = year;
+        this.week = week;
+        this.studyPlaces = studyPlaces;
+        this.studyPace = studyPace;
+    }
 
-	public double getPoints() {
-		return points;
-	}
+    public String getCourseCode() {
+        return courseCode;
+    }
 
-	public String getRegistrationCode() {
-		return registrationCode;
-	}
-	
-	public int getYear() {
-		return year;
-	}
-	
-	public int getWeek() {
-		return week;
-	}
+    public String getCourseName() {
+        return courseName;
+    }
 
-	public int getStudyPlaces() {
-		return studyPlaces;
-	}
+    public double getPoints() {
+        return points;
+    }
 
-	public double getStudyPace() {
-		return studyPace;
-	}
+    public String getRegistrationCode() {
+        return registrationCode;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getWeek() {
+        return week;
+    }
+
+    public int getStudyPlaces() {
+        return studyPlaces;
+    }
+
+    public double getStudyPace() {
+        return studyPace;
+    }
 
 
 }

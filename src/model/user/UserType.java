@@ -1,8 +1,11 @@
-package model.User;
+package model.user;
 
 public interface UserType {
-	
-	public String getUsername();
-	public String getPassword();
-	public String getRole();
+
+    public String getUsername();
+
+    public String getPassword();
+
+    public String getRole();
+
 }
