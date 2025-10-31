@@ -21,10 +21,11 @@ public class Controller {
 	public void handshakeLoginClick() {
 		String username = logInF.getUsername();
 		String password = logInF.getPassword();
+		String name = logInF.getName();
 		
 		if(HandshakeLogin(username, password)) {
-			logInF.showMessage("Loggar in...", Color.GREEN);
-			JOptionPane.showMessageDialog(logInF, "Welcome, " + pCheck.getUserRole() + "!");
+			//logInF.showMessage("Loggar in...", Color.GREEN);
+			//JOptionPane.showMessageDialog(logInF, "Welcome, " + pCheck.getUserRole() + "!");
 			openMainWindow();
 		}
 	}
