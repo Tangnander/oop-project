@@ -5,6 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.net.URL;
 
 import javax.swing.*;
 
@@ -22,16 +23,31 @@ public class MainFrame extends JFrame{
 	public MainFrame() { // String username
 		
 		// Frame Block.
-		setTitle("Admin");
+		setTitle("Högskolan i Gävle");
+		
+		URL iconURL = getClass().getResource("/view/images/ikon.png");
+		if (iconURL != null) {
+			ImageIcon icon = new ImageIcon(iconURL);
+			setIconImage(icon.getImage());
+		} else {
+			System.out.println("Varning: Ikonen hittades inte!");
+		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		setSize(1500,900);
 		getContentPane().setBackground(new Color(50,50,50));
 		setVisible(true);
 		
+		  // Huvudtitel
+	    JLabel titleLabel = new JLabel("Välkommen");
+	    titleLabel.setForeground(Color.WHITE); // vit text
+	    titleLabel.setHorizontalAlignment(SwingConstants.LEFT); // vänsterjusterad
+	    titleLabel.setFont(titleLabel.getFont().deriveFont(24f)); // större font
+	    panel1.add(titleLabel, BorderLayout.WEST);
+		
 		add(panel1,BorderLayout.NORTH);
 		panel1.setLayout(new BorderLayout());
-		panel1.setBackground(Color.YELLOW);
+		//panel1.setBackground(Color.YELLOW);
 		panel1.setPreferredSize(new Dimension(0,20));
 		// Sub Panels.
 		
@@ -42,7 +58,7 @@ public class MainFrame extends JFrame{
 
         // Add Windows
         mainPanel.add(new MainWindow(), "MainWindow");
-        mainPanel.add(new CourseVeiw(), "CourseWindow");
+        mainPanel.add(new CourseView("src/courses.txt"), "CourseWindow");
         mainPanel.add(new StudentView(), "StudentWindow");
 
         // Menu
@@ -75,4 +91,5 @@ public class MainFrame extends JFrame{
 			System.exit(0);
 		}
 	}
+		
 }
