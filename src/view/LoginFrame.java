@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import controller.Controller;
+import model.user.Student;
 
 public class LoginFrame extends JFrame {
 
@@ -82,7 +83,7 @@ public class LoginFrame extends JFrame {
 		setVisible(true);
 
 		// Event för login-knappen
-		loginButton.addActionListener(e -> controller.handshakeLoginClick());
+		//loginButton.addActionListener(e -> controller.handshakeLoginClick());
 
 		// Event för Enter-tangent i passwordfältet
 		passwordField.addActionListener(e -> controller.handshakeLoginClick());
@@ -91,6 +92,10 @@ public class LoginFrame extends JFrame {
 
 	public String getUsername() {
 		return usernameField.getText();
+	}
+	
+	public Student getStudent() {
+		return controller.getCurrentUser();
 	}
 
 	public String getPassword() {

@@ -9,6 +9,8 @@ import java.net.URL;
 
 import javax.swing.*;
 
+import controller.Controller;
+
 public class MainFrame extends JFrame{
 	
     private CardLayout cardLayout; // Easier to change window.
@@ -21,7 +23,7 @@ public class MainFrame extends JFrame{
     private JMenuItem exitItem;
 
 	public MainFrame() { // String username
-		
+
 		// Frame Block.
 		setTitle("Högskolan i Gävle");
 		
@@ -58,8 +60,8 @@ public class MainFrame extends JFrame{
 
         // Add Windows
         mainPanel.add(new MainWindow(), "MainWindow");
-        mainPanel.add(new CourseView("src/courses.txt"), "CourseWindow");
-        mainPanel.add(new StudentView(), "StudentWindow");
+        mainPanel.add(new CourseView("src/courses.txt", null), "CourseWindow");
+        mainPanel.add(new StudentView("src/celebrities.txt"), "StudentWindow");
 
         // Menu
         JMenuBar menuBar = new JMenuBar();
@@ -84,6 +86,8 @@ public class MainFrame extends JFrame{
         mainItem.addActionListener(e -> cardLayout.show(mainPanel, "MainWindow"));
         courseItem.addActionListener(e -> cardLayout.show(mainPanel, "CourseWindow"));
         studentItem.addActionListener(e -> cardLayout.show(mainPanel, "StudentWindow"));
+        
+        
         
 	}
 	public void actionPerformed(ActionEvent e) {
