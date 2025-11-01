@@ -22,6 +22,9 @@ public class CourseReader {
                 int studyPlaces = Integer.parseInt(parts[6]);
                 double studyPace = Double.parseDouble(parts[7]);
              
+                studyPace = studyPace * 100;
+              
+                
                 CourseTracker course = new CourseTracker(courseCode, courseName, points,
                                                          registrationCode, year, week, studyPlaces, studyPace);
                 courses.add(course);

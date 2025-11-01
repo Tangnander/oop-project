@@ -28,7 +28,9 @@ public class StudentReader {
 				String email = EmailCreator.createEmail(username);
 				String password = "pass123";
 				String role = "Student";
-
+				
+				name = orderName.nameflipper(name);
+				
 				Student student = new Student(name, personalID, username, email, password, role);
 
 				studentList.add(student);
