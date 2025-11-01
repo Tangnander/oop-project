@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 import model.PermissionCheck;
+import view.CourseView;
 import view.LoginFrame;
 import view.MainFrame;
 import model.user.Student;
@@ -13,6 +14,11 @@ public class Controller {
 
 	private PermissionCheck pCheck;
 	private LoginFrame logInF;
+	private Student loggedInUser;
+	
+	public Controller() {	
+		
+	}
 	
 	public Controller(LoginFrame login) {
 		this.logInF = login;
@@ -34,25 +40,29 @@ public class Controller {
 	public boolean HandshakeLogin(String username, String password) {
 		pCheck.setRequestedLoginInfo(username, password);
 		if (pCheck.checkPassword()) {
-			Student loggedInUser = pCheck.login();
+			this.loggedInUser = pCheck.login();
 			System.out.println("Login correct: " + pCheck.getUserRole());
-			System.out.println("Current user: " + loggedInUser);
+			System.out.println("Current user: " + loggedInUser);		
 			return true;
 		} else {
 			System.out.println("Wrong username or password!");
 			return false;
 		}
 	}
+	
     private void openMainWindow() {
         logInF.closeWindow();
         new MainFrame(); 
+   
     }
+    
+    
     
 	public String getLoggedUserRole() {
 		return pCheck.getUserRole();
 	}
 	
 	public Student getCurrentUser() {
-		return pCheck.login();
+		return loggedInUser;
 	}
 }	
